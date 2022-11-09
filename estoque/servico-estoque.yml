@@ -1,0 +1,19 @@
+application:
+  environment: Estoque Producao
+spring:
+  datasource:
+    username: root
+    password: root
+    url: jdbc:mysql://localhost:3306/servico_estoque?createDatabaseIfNotExist=true
+  sql:
+    init:
+      platform: mysql
+      data-locations: classpath:data-mysql.sql
+      mode: always
+  jpa:
+    show-sql: false
+    hibernate:
+      ddl-auto: validate
+eureka:
+  instance:
+    instance-id: ${spring.application.name}::${spring.application.instance_id:${random.value}}
