@@ -1,6 +1,11 @@
 application:
   environment: Envio Desenvolvimento
 spring:
+  kafka:
+    producer:
+      value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
+    consumer:
+      value-deserializer: org.apache.kafka.common.serialization.ByteArrayDeserializer
   h2:
     console:
       enabled: true
